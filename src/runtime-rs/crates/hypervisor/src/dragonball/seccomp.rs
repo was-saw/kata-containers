@@ -17,7 +17,7 @@ pub fn get_seccomp_filter(thread_type: &ThreadType) -> BpfProgram {
     };
     SeccompFilter::new(
         rules.into_iter().collect(),
-        SeccompAction::Trap,
+        SeccompAction::Log,
         SeccompAction::Allow,
         std::env::consts::ARCH.try_into().unwrap(),
     )
